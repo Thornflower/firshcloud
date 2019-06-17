@@ -1,0 +1,9 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/        #配置多个注册中心
+  #instance:
+  #   hostname: clientName            #自定义注册中心链接名称
+spring:
+  application:
+    name: client            #服务名称

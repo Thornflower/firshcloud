@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: getaway            #服务名称     配置中心客户端服务名称（这里） 要与git上 配置文件名前缀一样
+  cloud:
+    config:                     #配置中心客户端
+      discovery:
+        enabled: true
+        service-id: CONFIG      #配置中心服务名称
+      profile: dev            #git远程文件后缀名
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+zuul:
+  routes:
+#    myOrder:        #自定义路由转发名称   原 ： http：8765/order/接口路径  路由到 http：8765/myOrder/接口路径
+#      path: /myOrder/**
+#      serviceId: order     #服务名称
+#      sensitiveHeaders:     #为null  不过滤cookie
+    order: /myOrder/**     #简介写法
+#  ignored-patterns:         #排除某些路由  设置接口404
+    ##    - /**/env/print
+  sensitive-headers: #上面  不过滤所有服务的cookie
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
